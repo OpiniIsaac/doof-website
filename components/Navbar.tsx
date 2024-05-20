@@ -1,9 +1,11 @@
 "use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Modal from './Modal'; // Adjust the import path as necessary
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <nav className="bg-white shadow-lg">
@@ -33,7 +35,10 @@ export default function Navbar() {
           
           {/* Get App Button */}
           <div className="hidden md:flex items-center">
-            <button className="bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition duration-300">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition duration-300"
+            >
               Get App
             </button>
           </div>
@@ -61,11 +66,17 @@ export default function Navbar() {
           <Link href="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-green-500">
             Contact
           </Link>
-          <button className="block w-full text-center bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition duration-300">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="block w-full text-center bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition duration-300"
+          >
             Get App
           </button>
         </div>
       </div>
+
+      {/* Modal */}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </nav>
   );
 }
