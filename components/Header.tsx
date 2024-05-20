@@ -9,7 +9,7 @@ export default function Header() {
           Your Campus, Your Food, <span className="text-green-600">Delivered Fast</span>
         </h1>
         <p className="mt-4 text-xl text-gray-600 sm:text-2xl">
-          Hungry? Craving your favorite meal? UniEats has got you covered!
+          Hungry? Craving your favorite meal? Doof has got you covered!
         </p>
         <div className="mt-8">
           <a
